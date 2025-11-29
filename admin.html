@@ -3,9 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Admin Dashboard</title>
+ 
 </head>
 <body>
     
+    <h1> Fleet Dashboard</h1>
+    <h2>Add Fleet</h2>
+    <div>
+        Category:
+        <select id = "filterCategory">
+            <option value="All">All</option>
+            <option value="Auto">Auto</option>
+            <option value="Car">Car</option>
+            <option value="Truck">Truck</option>
+            <option value="Bus">Bus</option>
+
+        </select> 
+    </div>
+    <script>
+        let vehicles=[];
+    const imgLink="https://coding-platform.s3.amazonaws.com/dev/lms/tickets/5e80fcb6-3f8e-480c-945b-30a5359eb40e/JNmYjkVr3WOjsrbu.png"
+    const cards=document.getElementById("cards");
+    document.getElementById("add Fleet").addEventListener("click",()=>{
+    const reg=document.getElementById("reg").value;
+    const cat=document.getElementById("catergory").value;
+    const drv=document.getElementById("driver").value;
+    const avl=document.getElementById("availble").value;
+    if(!reg || !cat || !drv || !avl){
+        alert("Allthe fields are required");
+        return;
+    }
+    vehicles.push({
+        id:Date.now(),reg,category:cat,driver:drv,available:avl,imgLink
+    });
+    document.getElementById('reg').value="";
+    document.getElementById('category').value="";
+    document.getElementById('driver').value="";
+    document.getElementById('avaiable').value="";
+    render();
+});
+
+    
+    </script>
+
+
 </body>
 </html>
